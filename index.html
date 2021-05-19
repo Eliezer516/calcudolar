@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>CalcuDolar - Conversor Dolares a Bolívares</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer">
 <link rel="stylesheet" href="/app.c328ef1a.css"></head>
 <body>
@@ -11,26 +11,33 @@
 	<div class="container">
 		<div class="info-text">
 			<p>Esta en una mini app para calculo de dolares a bolivares minimalista y al grano</p><hr>
-			<p>El precio oficial de actualiza cada 10 minutos</p>
+			<p>El precio promedio de actualiza cada 10 minutos</p>
 			<div class="button">
-				<button><i class="fa fa-times"></i> Cerrar</button>
+				<button><span class="ripple"></span><i class="fa fa-times"></i> Cerrar</button>
 			</div>
 		</div>
 		<div class="app">
 			<div class="info-icon"><i class="fa fa-info-circle"></i></div>
 			<div class="promedio">
-				<h2>Precio promedio segun DolarToday</h2>
+				<h2>Precio promedio a las <span id="hora">--:-- --</span></h2>
 				<h2 id="precio_promedio">-.---.---,--</h2>
 			</div>
 			<div class="entrada">
 				<input type="text" id="entrada_cantidad" placeholder="Cantidad de dolares" required="">
 				<div class="button">
-					<button id="btn-calcular">Calcular <i class="fa fa-calculator"></i></button>
+					<button id="btn-calcular">Calcular <span class="ripple"></span> <i class="fa fa-calculator"></i></button>
 				</div>
 			</div>
 			<div class="salida">
-				<h3><span>_</span><i class="fa fa-dollar-sign"></i> Dolares equivalen a</h3>
-				<h2>-.---.---,--</h2>
+				<div class="exitoso">
+					<h3><span>_</span><i class="fa fa-dollar-sign"></i> Dolares equivalen a</h3>
+					<h2>-.---.---,--</h2>
+				</div>
+				<div class="no_exitoso">
+					<p>Ha ocurrido un error al obtener los datos de la API</p>
+					<p>Compruebe su conexión a internet o recarga la pagina</p>
+					<button id="reload"><span class="ripple"></span> Recargar</button>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -189,10 +189,31 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"app.js":[function(require,module,exports) {
+},{"_css_loader":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"ripple.js":[function(require,module,exports) {
+// import 'jque'
+const buttons = document.querySelectorAll('button');
+buttons.forEach(btn => {
+  btn.addEventListener('mouseenter', e => {
+    x = e.layerX;
+    y = e.layerY;
+    const uno = btn.children[0];
+    uno.style.top = y + 'px';
+    uno.style.left = x + 'px';
+  });
+  btn.addEventListener('mouseout', e => {
+    x = e.layerX;
+    y = e.layerY;
+    const uno = btn.children[0];
+    uno.style.top = y + 'px';
+    uno.style.left = x + 'px';
+  });
+});
+},{}],"app.js":[function(require,module,exports) {
 "use strict"; // IMPORTS
 
 require("./estilos.scss");
+
+require("./ripple.js");
 
 document.addEventListener('DOMContentLoaded', () => {
   // CONSTANTES Y VARIABLES
@@ -200,9 +221,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const btn_calcular = document.querySelector('#btn-calcular');
   const canDolares = document.querySelector('#entrada_cantidad');
   const alerta = document.querySelector('.alert');
-  const salida = document.querySelector('.salida');
-  const lbl_salida = document.querySelector('.salida h2');
-  const lbl_dolares = document.querySelector('.salida h3 span');
+  const exitoso = document.querySelector('.exitoso');
+  const no_exitoso = document.querySelector('.no_exitoso');
+  const lbl_salida = document.querySelector('.exitoso h2');
+  const lbl_dolares = document.querySelector('.exitoso h3 span');
   const info_icon = document.querySelector('.info-icon');
   const info_text = document.querySelector('.info-text');
   const btn_cerrar_info = document.querySelector('.info-text button');
@@ -222,21 +244,29 @@ document.addEventListener('DOMContentLoaded', () => {
         alerta.style.cssText = "opacity: 0; pointer-events: none;";
       }, 5000);
     } else {
-      dolares = parseFloat(canDolares.value);
-      lbl_dolares.innerText = dolares;
-      CalcularDolares(precioTotal, dolares);
-      salida.style.cssText = "opacity: 1; pointer-events: initial;";
+      if (precioTotal === undefined) {
+        no_exitoso.style.cssText = "opacity: 1; pointer-events: initial;";
+      } else {
+        dolares = parseFloat(canDolares.value);
+        lbl_dolares.innerText = dolares;
+        CalcularDolares(dolares, precioTotal);
+        exitoso.style.cssText = "opacity: 1; pointer-events: initial; display: block";
+      }
     }
   }); // FUNCIONES
 
   async function obtenerDatos() {
-    const respuesta = await fetch('https://s3.amazonaws.com/dolartoday/data.json');
-    const json = await respuesta.json();
-    let precio = json.USD.promedio_real;
-    let precioParseado = parseFloat(precio);
-    let cambioABolivar = precioParseado.toLocaleString();
-    precioTotal = precio;
-    precio_promedio.innerText = cambioABolivar;
+    try {
+      const respuesta = await fetch('https://s3.amazonaws.com/dolartoday/data.json');
+      const json = await respuesta.json();
+      let precio = json.USD.promedio;
+      let precioParseado = parseFloat(precio);
+      let cambioABolivar = precioParseado.toLocaleString();
+      precioTotal = precio;
+      precio_promedio.innerText = cambioABolivar;
+    } catch (e) {
+      console.log('Error al obtener datos');
+    }
   }
 
   obtenerDatos();
@@ -249,7 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
     lbl_salida.innerText = montoPaeseado;
   }
 });
-},{"./estilos.scss":"estilos.scss"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./estilos.scss":"estilos.scss","./ripple.js":"ripple.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -277,7 +307,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1713" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "19814" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -454,4 +484,4 @@ function hmrAcceptRun(bundle, id) {
   }
 }
 },{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","app.js"], null)
-//# sourceMappingURL=/app.c328ef1a.js.map
+//# sourceMappingURL=app.c328ef1a.js.map

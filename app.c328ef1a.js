@@ -225,7 +225,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const no_exitoso = document.querySelector('.no_exitoso');
   const lbl_salida = document.querySelector('.exitoso h2');
   const lbl_dolares = document.querySelector('.exitoso h3 span');
+<<<<<<< HEAD
   const lbl_hora = document.querySelector('#hora');
+=======
+>>>>>>> cafcc6f493b1b8640267dd856f00d01c26400735
   const info_icon = document.querySelector('.info-icon');
   const info_text = document.querySelector('.info-text');
   const btn_cerrar_info = document.querySelector('.info-text button');
@@ -250,7 +253,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 5000);
     } else {
       if (precioTotal === undefined) {
+<<<<<<< HEAD
         no_exitoso.style.cssText = "opacity: 1; pointer-events: initial; display: block;";
+=======
+        no_exitoso.style.cssText = "opacity: 1; pointer-events: initial;";
+>>>>>>> cafcc6f493b1b8640267dd856f00d01c26400735
       } else {
         dolares = parseFloat(canDolares.value);
         lbl_dolares.innerText = dolares;
@@ -265,14 +272,20 @@ document.addEventListener('DOMContentLoaded', () => {
       const respuesta = await fetch('https://s3.amazonaws.com/dolartoday/data.json');
       const json = await respuesta.json();
       let precio = json.USD.promedio;
+<<<<<<< HEAD
       let hora = json._timestamp.fecha;
       let subHora = hora.substring(15);
+=======
+>>>>>>> cafcc6f493b1b8640267dd856f00d01c26400735
       let precioParseado = parseFloat(precio);
       let cambioABolivar = precioParseado.toLocaleString();
       precioTotal = precio;
       precio_promedio.innerText = cambioABolivar;
+<<<<<<< HEAD
       lbl_hora.innerText = subHora;
       console.log(hora);
+=======
+>>>>>>> cafcc6f493b1b8640267dd856f00d01c26400735
     } catch (e) {
       console.log('Error al obtener datos');
     }
@@ -316,7 +329,11 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
+<<<<<<< HEAD
   var ws = new WebSocket(protocol + '://' + hostname + ':' + "20208" + '/');
+=======
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "19814" + '/');
+>>>>>>> cafcc6f493b1b8640267dd856f00d01c26400735
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -493,4 +510,4 @@ function hmrAcceptRun(bundle, id) {
   }
 }
 },{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","app.js"], null)
-//# sourceMappingURL=/app.c328ef1a.js.map
+//# sourceMappingURL=app.c328ef1a.js.map

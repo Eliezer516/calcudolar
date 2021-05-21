@@ -214,7 +214,19 @@ const body = document.querySelector('body');
 
 dark_button.onclick = () => {
   body.classList.toggle('lightmode');
+
+  if (body.classList.contains('lightmode')) {
+    localStorage.setItem('dark-mode', 'true');
+  } else {
+    localStorage.setItem('dark-mode', 'false');
+  }
 };
+
+if (localStorage.getItem('dark-mode') === 'true') {
+  body.classList.add('lightmode');
+} else {
+  body.classList.remove('lightmode');
+}
 },{}],"app.js":[function(require,module,exports) {
 "use strict"; // IMPORTS
 
@@ -226,6 +238,7 @@ require("./darkmode.js");
 
 document.addEventListener('DOMContentLoaded', () => {
   // CONSTANTES Y VARIABLES
+  const app = document.querySelector('.app');
   const precio_promedio = document.querySelector('#precio_promedio');
   const btn_calcular = document.querySelector('#btn-calcular');
   const canDolares = document.querySelector('#entrada_cantidad');
@@ -242,6 +255,9 @@ document.addEventListener('DOMContentLoaded', () => {
   let dolares;
   let precioTotal; // LISTENERS
 
+  app.addEventListener('submit', e => {
+    e.preventDefault();
+  });
   btn_reload.addEventListener('click', () => {
     location.reload();
   });
@@ -325,7 +341,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1105" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "4720" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

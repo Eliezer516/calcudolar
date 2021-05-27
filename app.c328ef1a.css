@@ -1,45 +1,45 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
 body.lightmode {
-  background: #000;
-  color: white;
+  background: #1B1926;
+  color: #e3e3e3;
 }
 
 body.lightmode .app {
-  border: 2px solid white;
+  border: 2px solid #e3e3e3;
 }
 
 body.lightmode .alert {
-  background: black;
-  border: 2px solid white;
-  color: white;
+  background: #1B1926;
+  border: 2px solid #e3e3e3;
+  color: #e3e3e3;
 }
 body.lightmode .alert .bLeft {
-  background: white;
+  background: #e3e3e3;
 }
 
 body.lightmode .ripple {
-  background: white;
+  background: #e3e3e3;
 }
 
 body.lightmode button {
-  border: 2px solid white;
-  color: white;
+  border: 2px solid #e3e3e3;
+  color: #e3e3e3;
 }
 body.lightmode button:hover {
-  color: black;
+  color: #1B1926;
 }
 
 body.lightmode .info-text {
-  background: black;
-  border: 2px solid white;
+  background: #1B1926;
+  border: 2px solid #e3e3e3;
 }
 body.lightmode .info-text button {
-  border: 2px solid white;
+  border: 2px solid #e3e3e3;
 }
 
 body.lightmode .darkmode-icon {
-  background: white;
-  color: black;
+  background: #e3e3e3;
+  color: #1B1926;
 }
 
 body.lightmode .fa-sun {
@@ -55,6 +55,10 @@ body.lightmode .fa-moon {
   margin: 0;
   box-sizing: border-box;
   font-family: "Ubuntu", sans-serif;
+}
+
+body {
+  background: #f3f3f3;
 }
 
 .title {
@@ -98,7 +102,7 @@ body.lightmode .fa-moon {
 .entrada input {
   border: none;
   appearance: none;
-  background: #f2f2f2;
+  background: white;
   padding: 12px;
   border-radius: 3px;
   width: 250px;
@@ -171,7 +175,7 @@ body.lightmode .fa-moon {
   font-size: 20px;
 }
 .no_exitoso button:hover {
-  color: white;
+  color: #f3f3f3;
 }
 .no_exitoso button:hover .ripple {
   width: 400px;
@@ -185,7 +189,7 @@ body.lightmode .fa-moon {
   left: 30px;
   padding: 20px;
   font-size: 20px;
-  background: white;
+  background: #f3f3f3;
   border: 2px solid black;
   border-radius: 10px;
   opacity: 0;
@@ -222,7 +226,7 @@ body.lightmode .fa-moon {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: #f3f3f3;
   font-size: 18px;
 }
 .darkmode-icon .fa-sun {
@@ -235,7 +239,7 @@ body.lightmode .fa-moon {
 .info-text {
   width: 75%;
   position: absolute;
-  background: white;
+  background: #f3f3f3;
   padding: 15px;
   z-index: 10;
   border: 2px solid black;
@@ -268,7 +272,7 @@ button {
   transition: 0.5s;
 }
 button:hover {
-  color: white;
+  color: #f3f3f3;
 }
 button:hover .ripple {
   width: 400px;

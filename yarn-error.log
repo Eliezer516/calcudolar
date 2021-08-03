@@ -1,0 +1,48 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\IRAIDA\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add -D parcel
+
+PATH: 
+  C:\Users\IRAIDA\Desktop\ConEmuPack.210314\ConEmu\Scripts;C:\Users\IRAIDA\Desktop\ConEmuPack.210314;C:\Users\IRAIDA\Desktop\ConEmuPack.210314\ConEmu;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Users\IRAIDA\Desktop\Sublime Text Build 3211;C:\Users\IRAIDA\AppData\Local\Programs\Python\Python38-32\Scripts\;C:\Users\IRAIDA\AppData\Local\Programs\Python\Python38-32\;C:\Users\IRAIDA\.dotnet\tools;C:\Users\IRAIDA\AppData\Roaming\npm;C:\AppServ\Apache24\bin;C:\AppServ\php5;C:\AppServ\MySQL\bin
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  13.14.0
+
+Platform: 
+  win32 ia32
+
+Trace: 
+  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:66:26)
+
+npm manifest: 
+  {
+    "name": "calcudolar",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "dev": "parcel src/index.html",
+      "pro": "parcel-bundler build src/index.html"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "cssnano": "^5.0.2",
+      "postcss": "^8.2.15",
+      "sass": "^1.32.13"
+    },
+    "browserslist": [
+      "since 2017-06"
+    ]
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

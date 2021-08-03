@@ -1,0 +1,22 @@
+{
+  "name": "calcudolar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel src/index.html",
+    "pro": "parcel build src/index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cssnano": "^5.0.4",
+    "postcss": "^8.2.15",
+    "sass": "^1.34.0"
+  },
+  "browserslist": [
+    "since 2017-06"
+  ]
+}

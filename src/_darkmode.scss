@@ -1,0 +1,44 @@
+$blacklight: #1B1926;
+$whitelight: #e3e3e3;
+body.lightmode{
+	background: $blacklight;
+	color: $whitelight;
+}
+body.lightmode .app{
+	border: 2px solid $whitelight;
+}
+body.lightmode .alert{
+	background: $blacklight;
+	border: 2px solid $whitelight;
+	color: $whitelight;
+	.bLeft{
+		background: $whitelight;
+	}
+}
+body.lightmode .ripple{
+	background: $whitelight;
+}
+body.lightmode button{
+	border: 2px solid $whitelight;
+	color: $whitelight;
+	&:hover{
+		color: $blacklight;
+	}
+}
+body.lightmode .info-text{
+	background: $blacklight;
+	border: 2px solid $whitelight;
+	button{
+		border: 2px solid $whitelight;
+	}
+}
+body.lightmode .darkmode-icon{
+	background: $whitelight;
+	color: $blacklight;
+}
+body.lightmode .fa-sun{
+	display: block;
+}
+body.lightmode .fa-moon{
+	display: none;
+}

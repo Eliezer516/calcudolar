@@ -77,7 +77,6 @@
         background: #f8f9fa;
         padding: 2px 6px;
         border-radius: 4px;
-        font-size: 0.9rem;
       }
 
       .converter-section {
@@ -116,7 +115,7 @@
         gap: 10px;
       }
 
-      .key {
+      button.key {
         aspect-ratio: 1;
         background: #ecf0f1;
         border: none;
@@ -285,7 +284,7 @@
             fetchDollarEuroRate(),
             fetchUsdtRate()
           ]);
-          // createVirtualKeyboard();
+          createVirtualKeyboard();
           setupInputHandling();
         } catch (error) {
           showError('Error al cargar las tasas de cambio' + error);
@@ -420,7 +419,8 @@
             button.classList.add('action');
           } else if (key === 'C') {
             button.textContent = 'C';
-            button.classList.add('action wide');
+            button.classList.add('action');
+            button.classList.add('wide');
           } else {
             button.textContent = key;
           }

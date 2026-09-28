@@ -20,9 +20,24 @@ La tasa se obtiene de `https://rates.dolarvzla.com/bcv/current.json` (CORS
 habilitado). Se guarda en `localStorage` por 30 minutos para que la app abra
 instantaneamente y siga mostrando el ultimo valor si no hay conexion.
 
+## PWA
+
+`vite-plugin-pwa` genera el manifest y el service worker en cada build:
+
+- **Installable**: manifest con iconos 192/512, maskable y `apple-touch-icon`,
+  `display: standalone` y meta tags de iOS.
+- **Offline**: `precacheAndRoute` de todo el bundle + `navigateFallback` a
+  `index.html`. La API del BCV usa `NetworkFirst` con timeout de 5 s y 7 días de
+  expiración, así que sin conexión devuelve la última tasa conocida.
+- **Actualizaciones**: `registerType: 'prompt'`, el SW nuevo espera y
+  `UpdatePrompt` ofrece "Actualizar" en vez de recargar solo.
+
+El service worker está **desactivado en dev** (`devOptions.enabled: false`) para no
+cachear los módulos de Vite. Probalo con `bun run build && bun run preview`.
+
 ## Estructura
 
 - `src/lib/amount.ts` — modelo de entrada (dígitos enteros + decimales) y formato venezolano `1.234,56`
 - `src/lib/rates.ts` — API, validación y caché de la tasa
 - `src/hooks/useRate.ts` — carga, refresco y estados de error
-- `src/components/` — `Keypad`, `Panel`, `RateBar`, iconos
+- `src/components/` — `Keypad`, `Panel`, `RateBar`, `UpdatePrompt`, iconos

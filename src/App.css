@@ -354,6 +354,58 @@
   }
 }
 
+.update {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: calc(12px + env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  animation: update-in 200ms ease-out;
+}
+
+.update__text {
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.update__actions {
+  display: flex;
+  flex: none;
+  gap: 8px;
+}
+
+.update__btn {
+  padding: 8px 14px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--brand);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.update__btn--ghost {
+  background: var(--surface-2);
+  color: var(--muted);
+}
+
+@keyframes update-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
 /* Error state ----------------------------------------------------------- */
 
 .state-card {
@@ -494,5 +546,13 @@
 
   .toast {
     bottom: 28px;
+  }
+
+  .update {
+    left: 50%;
+    right: auto;
+    bottom: 28px;
+    transform: translateX(-50%);
+    width: min(420px, calc(100vw - 48px));
   }
 }

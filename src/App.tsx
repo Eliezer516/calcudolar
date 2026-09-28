@@ -2,8 +2,9 @@ import { useCallback, useEffect, useState } from "react";
 import "./App.css";
 import { Keypad } from "./components/Keypad";
 import { Panel, type Currency } from "./components/Panel";
-import { RateBar } from "./components/RateBar";
+// import { RateBar } from "./components/RateBar";
 import { AlertIcon, SwapIcon } from "./components/icons";
+import { UpdatePrompt } from "./components/UpdatePrompt";
 import { useRate } from "./hooks/useRate";
 import {
   ZERO,
@@ -202,6 +203,10 @@ function App() {
           {toast}
         </div>
       ) : null}
+
+      <UpdatePrompt
+        onOfflineReady={() => setToast("Listo para usar sin conexion")}
+      />
     </div>
   );
 }

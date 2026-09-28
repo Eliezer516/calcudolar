@@ -1,0 +1,93 @@
+.keypad {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.keypad__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.keypad__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.keypad__key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 58px;
+  border: 1px solid var(--key-border);
+  border-radius: var(--radius-sm);
+  background: var(--key-bg);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  transition:
+    transform 80ms ease,
+    background-color 120ms ease,
+    border-color 120ms ease;
+}
+
+.keypad__key--wide {
+  grid-column: span 2;
+}
+
+.keypad__key--ghost {
+  height: 48px;
+  background: var(--key-ghost-bg);
+  color: var(--muted);
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.keypad__key--dec {
+  color: var(--brand);
+  font-size: 26px;
+}
+
+.keypad__key:hover:not(:disabled) {
+  background: var(--key-bg-hover);
+  border-color: var(--key-border-hover);
+}
+
+.keypad__key:active:not(:disabled) {
+  transform: scale(0.96);
+  background: var(--key-bg-active);
+}
+
+.keypad__key:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.keypad__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.keypad__key:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+@media (min-width: 900px) {
+  .keypad__key {
+    height: 62px;
+    font-size: 23px;
+  }
+
+  .keypad__key--ghost {
+    height: 52px;
+  }
+}

@@ -12,7 +12,12 @@
 .app__header {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
 }
 
 .app__title {
@@ -54,11 +59,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 12px 14px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--surface);
-  box-shadow: var(--shadow-sm);
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
 }
 
 .rate__value {
@@ -481,6 +483,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    gap: 24px;
+    padding: 14px 20px;
   }
 
   .app__title {
@@ -492,7 +496,9 @@
   }
 
   .rate {
-    padding: 12px 14px 12px 18px;
+    padding: 4px 0 4px 24px;
+    border-top: none;
+    border-left: 1px solid var(--border);
   }
 
   .calculator {

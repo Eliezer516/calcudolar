@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import "./App.css";
 import { Keypad } from "./components/Keypad";
 import { Panel, type Currency } from "./components/Panel";
-// import { RateBar } from "./components/RateBar";
+import { RateBar } from "./components/RateBar";
 import { AlertIcon, SwapIcon } from "./components/icons";
 import { UpdatePrompt } from "./components/UpdatePrompt";
 import { useRate } from "./hooks/useRate";
@@ -26,7 +26,7 @@ const CURRENCY_NAME: Record<Currency, string> = {
 
 function App() {
   const { status, rate, error, isRefreshing, refresh } = useRate();
-  const [direction, setDirection] = useState<Direction>("VES_USD");
+  const [direction, setDirection] = useState<Direction>("USD_VES");
   const [amount, setAmount] = useState<Amount>(ZERO);
   const [isCopied, setIsCopied] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
@@ -134,7 +134,7 @@ function App() {
           <h1 className="app__title">Cambio de moneda</h1>
           <p className="app__subtitle">Bolivar ⇄ Dolar oficial (BCV)</p>
         </div>
-        {/* <RateBar rate={rate} isRefreshing={isRefreshing} onRefresh={refresh} /> */}
+        <RateBar rate={rate} isRefreshing={isRefreshing} onRefresh={refresh} />
       </header>
 
       {status === "error" && rate ? (

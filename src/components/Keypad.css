@@ -4,15 +4,9 @@
   gap: 10px;
 }
 
-.keypad__actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-
 .keypad__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
 }
 
@@ -39,12 +33,7 @@
     border-color 120ms ease;
 }
 
-.keypad__key--wide {
-  grid-column: span 2;
-}
-
 .keypad__key--ghost {
-  height: 48px;
   background: var(--key-ghost-bg);
   color: var(--muted);
   font-size: 19px;
@@ -52,8 +41,12 @@
 }
 
 .keypad__key--dec {
+  grid-column: span 2;
+  background: var(--brand-soft);
+  border-color: var(--brand-border);
   color: var(--brand);
-  font-size: 26px;
+  font-size: 30px;
+  font-weight: 700;
 }
 
 .keypad__key:hover:not(:disabled) {
@@ -81,13 +74,15 @@
   outline-offset: 2px;
 }
 
+@media (max-height: 700px) {
+  .keypad__key {
+    height: 50px;
+  }
+}
+
 @media (min-width: 900px) {
   .keypad__key {
     height: 62px;
     font-size: 23px;
-  }
-
-  .keypad__key--ghost {
-    height: 52px;
   }
 }

@@ -59,14 +59,14 @@ function App() {
   }, [direction, inputValue, rate]);
 
   const handleCopy = useCallback(async () => {
-    const text = `${inputText} ${CURRENCY_NAME[from]} = ${resultText} ${CURRENCY_NAME[to]}`;
+    const text = `${resultText} ${CURRENCY_NAME[to]}`;
     if (await copyToClipboard(text)) {
       setIsCopied(true);
-      setToast("Conversion copiada");
+      setToast("Equivalente copiado");
     } else {
       setToast("No se pudo copiar");
     }
-  }, [from, inputText, resultText, to]);
+  }, [resultText, to]);
 
   useEffect(() => {
     if (!toast) return;
